@@ -10,12 +10,12 @@
 <table>
 <thead>
 <tr>
-<th><g-emoji class="g-emoji" alias="smiling_face_with_sunglasses" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png">😎</g-emoji>윤주혜/팀장</th>
-<th><g-emoji class="g-emoji" alias="winking_face" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png">😉</g-emoji>임윤혁/팀원</th>
-<th><g-emoji class="g-emoji" alias="woozy_face" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f974.png">🥴</g-emoji>정혜령/팀원</th>
-<th><g-emoji class="g-emoji" alias="beaming_face_with_smiling_eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png">😁</g-emoji>진주현/팀원</th>
-<th><g-emoji class="g-emoji" alias="face_savoring_food" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60b.png">😋</g-emoji>문유주/팀원</th>
-<th><g-emoji class="g-emoji" alias="grinning_squinting_face" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png">😆</g-emoji>조영훈/팀원</th>
+<th><g-emoji class="g-emoji" alias="smiling_face_with_sunglasses" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png">😎</g-emoji>/팀장</th>
+<th><g-emoji class="g-emoji" alias="winking_face" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png">😉</g-emoji>/팀원</th>
+<th><g-emoji class="g-emoji" alias="woozy_face" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f974.png">🥴</g-emoji>/팀원</th>
+<th><g-emoji class="g-emoji" alias="beaming_face_with_smiling_eyes" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f601.png">😁</g-emoji>/팀원</th>
+<th><g-emoji class="g-emoji" alias="face_savoring_food" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60b.png">😋</g-emoji>/팀원</th>
+
 </tr>
 </thead>
 <tbody>
