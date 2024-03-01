@@ -25,14 +25,12 @@
 <td><img src="assets/3.jpg" width="120" height="150"/></td>
 <td><img src="assets/4.jpg" width="120" height="150"/></td>
 <td><img src="assets/5.jpg" width="120" height="150"/></td>
-<td><img src="assets/6.jpg" width="120" height="150"/></td>
 </tr>
 <tr>
 <td>Frontend</td>
 <td>Frontend</td>
 <td>Frontend</td>
 <td>Frontend</td>
-<td>Backend</td>
 <td>Backend</td>
 </tr>
 </tbody>
