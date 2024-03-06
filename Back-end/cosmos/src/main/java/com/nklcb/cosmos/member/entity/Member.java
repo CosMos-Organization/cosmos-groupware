@@ -9,10 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Member extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String memberPk;
-
     @Column(length = 255, nullable = false)
     private String memberId;
 
