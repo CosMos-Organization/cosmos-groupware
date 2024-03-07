@@ -1,4 +1,4 @@
 package com.nklcb.cosmos.board.service;
 
-public interface BoardService {
+public interface PostService {
 }
