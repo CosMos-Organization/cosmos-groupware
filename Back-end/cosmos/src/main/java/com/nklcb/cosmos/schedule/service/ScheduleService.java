@@ -1,7 +1,7 @@
 package com.nklcb.cosmos.schedule.service;
 
-import org.springframework.stereotype.Service;
+import com.nklcb.cosmos.schedule.dto.ScheduleDTO;
 
-@Service
-public class ScheduleService {
+public interface ScheduleService {
+    public ScheduleDTO.ScheduleResponse createSchedule(ScheduleDTO.ScheduleCreateRequest scheduleCreateRequest);
 }
