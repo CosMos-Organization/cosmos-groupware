@@ -18,7 +18,7 @@ public class ScheduleServiceImpl implements ScheduleService{
 
         // 작성자
         Member member = new Member();
-        member.setId(1L);
+        member.setId(scheduleCreateRequest.getMemberId());
 
         Schedule schedule = Schedule.builder()
                 .schTitle(scheduleCreateRequest.getSchTitle())

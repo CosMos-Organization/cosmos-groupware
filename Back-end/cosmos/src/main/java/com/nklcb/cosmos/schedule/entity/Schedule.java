@@ -15,9 +15,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 public class Schedule extends BaseEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
-    private Long schId;     // 일정번호
 
     @Column
     private LocalDateTime schStart;     // 일정 시작일
@@ -40,8 +37,7 @@ public class Schedule extends BaseEntity {
 
 
     @Builder
-    public Schedule(Long schId, LocalDateTime schStart, LocalDateTime schEnd, String schTitle, String schPlace, String schContent, Member member) {
-        this.schId = schId;
+    public Schedule(LocalDateTime schStart, LocalDateTime schEnd, String schTitle, String schPlace, String schContent, Member member) {
         this.schStart = schStart;
         this.schEnd = schEnd;
         this.schTitle = schTitle;

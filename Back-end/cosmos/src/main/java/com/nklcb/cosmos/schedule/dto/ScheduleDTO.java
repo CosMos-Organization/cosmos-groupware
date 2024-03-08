@@ -32,11 +32,11 @@ public class ScheduleDTO {
         private String schContent;
 
         @NotNull(message = "일정 시작날짜를 입력해주세요.")
-        @Schema(description = "일정 시작날짜", example = "")
+        @Schema(description = "일정 시작날짜", example = "yyyy-MM-dd HH:mm", type = "string")
         private String schStart;
 
         @NotNull(message = "일정 종료날짜를 입력해주세요.")
-        @Schema(description = "일정 종료날짜", example = "")
+        @Schema(description = "일정 종료날짜", example = "yyyy-MM-dd HH:mm", type = "string")
         private String schEnd;
 
         public LocalDateTime getSchStart() {
