@@ -4,11 +4,11 @@ server:
 
 spring:
   profiles:
-    active: local
+    active: dev
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
