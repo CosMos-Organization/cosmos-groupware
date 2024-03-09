@@ -7,4 +7,5 @@ import java.util.List;
 public interface BoardService {
     void initBoard(BoardDto.BoardRequest boardInitRequest);
     public List<BoardDto.BoardResponse> selectBoards(Long companyId);
+    public List<BoardDto.BoardResponse> updateBoard(BoardDto.BoardUpdateRequest boardUpdateRequest);
 }

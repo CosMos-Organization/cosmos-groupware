@@ -30,7 +30,12 @@ public class BoardController {
 
     @PutMapping
     public ResponseEntity<?> updateBoard(@RequestBody BoardDto.BoardUpdateRequest boardUpdateRequest) {
-
-        return ResponseEntity.status(HttpStatus.CREATED).body("board init 성공");
+        return ResponseEntity.status(HttpStatus.OK).body(boardService.updateBoard(boardUpdateRequest));
     }
+
+    /*
+    *  보드가 삭제될 경우 post는 ? -> 보드를 soft delete로
+    *
+    * */
+
 }

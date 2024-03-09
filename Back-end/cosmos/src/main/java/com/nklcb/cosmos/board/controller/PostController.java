@@ -35,4 +35,15 @@ public class PostController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    /*
+    *  게시글 삭제
+    *  게시글 조회 -> 페이지, 검색 기능 , 게시판 별
+    * 게시글 조회 -> 페이지, 검색 기능 , 회원 별
+    *  게시글 변경
+    *
+    *
+    *
+    *
+    * */
 }

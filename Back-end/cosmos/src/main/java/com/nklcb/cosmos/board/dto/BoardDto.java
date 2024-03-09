@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BoardDto {
@@ -16,14 +17,15 @@ public class BoardDto {
 
     @Getter
     public static class BoardUpdateRequest{
+        private Long companyId;
         private List<BoardData> boardDataList;
     }
 
     @Getter
-    static class BoardData{
+    public static class BoardData{
         private Long boardId;
         private Long parentBoard;
-        private Integer order;
+        private Long boardOrder;
         private String boardName;
     }
 
@@ -36,6 +38,7 @@ public class BoardDto {
         private Long parentBoard;
         private String boardName;
         private Long boardOrder;
+        private List<BoardResponse> childBoard;
 
         public static BoardResponse of(Board board){
             return BoardResponse.builder()
@@ -44,6 +47,7 @@ public class BoardDto {
                     .boardName(board.getBoardName())
                     .parentBoard(board.getParentBoard())
                     .boardOrder(board.getBoardOrder())
+                    .childBoard(new ArrayList<>())
                     .build();
         }
     }

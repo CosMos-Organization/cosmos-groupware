@@ -12,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 public class Board extends BaseEntity {
     private Long parentBoard;
@@ -24,6 +25,7 @@ public class Board extends BaseEntity {
 
     @OneToMany(mappedBy = "board")
     List<Post> posts = new ArrayList<>();
+
 
     @Builder
     public Board(Long parentBoard, String boardName, Long boardOrder, Long companyId) {
