@@ -6,6 +6,8 @@ import com.nklcb.cosmos.board.entity.Post;
 import com.nklcb.cosmos.board.repository.BoardRepository;
 import com.nklcb.cosmos.board.repository.PostRepository;
 import com.nklcb.cosmos.member.entity.Member;
+import com.nklcb.cosmos.member.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,15 +17,13 @@ public class PostServiceImpl implements PostService{
 
     private final PostRepository postRepository;
     private final BoardRepository boardRepository;
+    private final MemberRepository memberRepository;
 
     @Override
+    @Transactional
     public PostDto.PostResponse createPost(PostDto.PostCreateRequest postCreateRequest) {
         Board board = boardRepository.findById(postCreateRequest.getBoardId()).orElseThrow(() -> new IllegalStateException("존재하지 않는 board입니다."));
-
-        // member repo 설정 후 추가
-        Member member = new Member();
-        member.setId(1L);
-        //member
+        Member member = memberRepository.findById(postCreateRequest.getMemberId()).orElseThrow(() -> new IllegalStateException("존재하지 않는 사용자입니다."));
 
         Post post = Post.builder()
                 .title(postCreateRequest.getTitle())
