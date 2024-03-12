@@ -1,6 +1,7 @@
 package com.nklcb.cosmos.email.service;
 
 import com.nklcb.cosmos.email.dto.EmailDto;
+import com.nklcb.cosmos.email.entity.Email;
 import com.nklcb.cosmos.email.repository.EmailRepository;
 import lombok.RequiredArgsConstructor;
 import nonapi.io.github.classgraph.json.JSONUtils;
@@ -15,12 +16,14 @@ public class EmailService {
     private final EmailRepository emailRepository;
 
 
-    public String writeEmail(EmailDto emailDto) {
+    public void writeEmail(EmailDto emailDto) {
+        Email email = Email.builder()
+                .senderAddress(emailDto.getSenderAddress())
+                .getterAddress(emailDto.getGetterAddress())
+                .content(emailDto.getContent())
+                .build();
+        emailRepository.save(email);
 
-
-        emailRepository.save(emailDto);
-
-        return null;
 
     }
 }
