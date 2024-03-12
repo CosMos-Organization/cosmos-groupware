@@ -1,59 +1,43 @@
 package com.nklcb.cosmos.member.entity;
 
 import com.nklcb.cosmos.global.BaseEntity;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Member extends BaseEntity implements UserDetails {
-    @Column(length = 255, nullable = false)
-    private String memberId;
+public class Member extends BaseEntity {
+    @Column
+    private String memberid;
 
-    @Column(length = 255, nullable = false)
-    private String memberPassword;
-
-    @Column(length = 255, nullable = false)
+    @Column
     private String name;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+    @Column
+    private String department;
+
+    @Column
+    private String position;
+
+    @Column
+    private String phone;
+
+    @Column(length = 255, nullable = false)
+    private String email;
+
+    @Builder
+    public Member(String memberid, String name, String department, String position, String phone, String email) {
+        this.memberid = memberid;
+        this.name = name;
+        this.department = department;
+        this.position = position;
+        this.phone = phone;
+        this.email = email;
     }
 
-    @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
-    }
 }
