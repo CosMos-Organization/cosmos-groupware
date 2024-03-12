@@ -58,7 +58,7 @@ public class ScheduleDTO {
     @Schema(description = "일정 생성 응답")
     public static class ScheduleResponse{
 
-        @Schema(description = "일정 ID ", example = "1L")
+        @Schema(description = "일정 ID", example = "1L")
         private final Long scheduleId;
         public static ScheduleResponse of(Schedule schedule){
             return ScheduleResponse.builder()
