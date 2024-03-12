@@ -28,7 +28,11 @@ public class MemberController {
         System.out.println(memberCreate.getPhone());
         System.out.println(memberCreate.getEmail());
 
+
         memberService.createMember(memberCreate);
+
+        
+
 
         return "hello";
     }

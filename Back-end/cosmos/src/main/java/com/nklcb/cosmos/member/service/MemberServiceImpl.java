@@ -18,7 +18,15 @@ public class MemberServiceImpl implements MemberService {
     public MemberDTO.MemberCreate createMember(MemberDTO.MemberCreate memberCreate) {
 
         Member member = new Member();
-        return MemberDTO.MemberCreate.of(memberRepository.save(member));
+
+        member.builder()
+                .email(memberCreate.getEmail())
+                .password(memberCreate.getPassword())
+                .name(memberCreate.getName())
+                .phone(memberCreate.getPhone())
+                .build();
+
+        return memberRepository.save(member);
 
     }
 
