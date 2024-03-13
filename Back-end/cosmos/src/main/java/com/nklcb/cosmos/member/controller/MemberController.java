@@ -1,7 +1,5 @@
 package com.nklcb.cosmos.member.controller;
 
-import java.util.Map;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nklcb.cosmos.member.dto.MemberDTO;
 import com.nklcb.cosmos.member.service.MemberService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 @CrossOrigin("*")
 @RequestMapping("/member")
 public class MemberController {
@@ -28,11 +29,7 @@ public class MemberController {
         System.out.println(memberCreate.getPhone());
         System.out.println(memberCreate.getEmail());
 
-
         memberService.createMember(memberCreate);
-
-        
-
 
         return "hello";
     }
