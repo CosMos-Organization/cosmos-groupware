@@ -12,21 +12,21 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Member extends BaseEntity {
 
-    private String memberid;
+    private String memberId;
+    private String password;
     private String name;
+    private String phone;
     private String department;
     private String position;
-    private String phone;
-    private String email;
 
     @Builder
-    public Member(String memberid, String name, String department, String position, String phone, String email) {
-        this.memberid = memberid;
+    public Member(String memberId, String password, String name, String phone, String department, String position) {
+        this.memberId = memberId;
+        this.password = password;
         this.name = name;
+        this.phone = phone;
         this.department = department;
         this.position = position;
-        this.phone = phone;
-        this.email = email;
     }
 
 }
