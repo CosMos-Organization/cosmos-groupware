@@ -10,6 +10,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class ScheduleDTO {
     @Getter
@@ -38,6 +39,10 @@ public class ScheduleDTO {
         @NotNull(message = "일정 종료날짜를 입력해주세요.")
         @Schema(description = "일정 종료날짜", example = "yyyy-MM-dd HH:mm", type = "string")
         private String schEnd;
+
+        @NotNull(message = "참석자 ID를 입력해주세요.")
+        @Schema(description = "참석자 ID 목록", example = "[2L, 3L]")
+        private List<Long> attendeeIds;
 
         public LocalDateTime getSchStart() {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
