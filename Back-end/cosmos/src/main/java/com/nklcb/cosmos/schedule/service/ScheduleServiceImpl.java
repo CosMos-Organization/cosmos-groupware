@@ -30,7 +30,7 @@ public class ScheduleServiceImpl implements ScheduleService{
         Member member = memberRepository.findById(scheduleCreateRequest.getMemberId())
                 .orElseThrow(() -> new IllegalArgumentException("회원을 찾을 수 없습니다."));
 
-
+        // 일정 등록
         Schedule schedule = Schedule.builder()
                 .schTitle(scheduleCreateRequest.getSchTitle())
                 .schStart(scheduleCreateRequest.getSchStart())
@@ -56,7 +56,16 @@ public class ScheduleServiceImpl implements ScheduleService{
         return ScheduleDTO.ScheduleResponse.of(saveSchedule);
     }
 
+    @Override
+    public void deleteSchedule(Long scheduleId) {
+        // 일정 참석자 삭제
+        List<ScheduleAttendee> attendees = scheduleAttendeeRepository.findByScheduleId(scheduleId);
+        scheduleAttendeeRepository.deleteAll(attendees);
 
+        // 일정 삭제
+        scheduleRepository.deleteById(scheduleId);
+
+    }
 
 
 }
