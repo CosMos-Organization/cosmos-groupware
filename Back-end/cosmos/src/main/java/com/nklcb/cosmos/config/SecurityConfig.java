@@ -14,18 +14,13 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-
-
 import java.util.Arrays;
 import java.util.Collections;
 
 @Configuration
 public class SecurityConfig {
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 
     // CORS 설정
     CorsConfigurationSource corsConfigurationSource() {
@@ -38,28 +33,28 @@ public class SecurityConfig {
             return config;
         };
     }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(corsConfigurer -> corsConfigurer.configurationSource(corsConfigurationSource()))
-                .formLogin(Customizer.withDefaults())
-                .authorizeHttpRequests(authorizeRequest ->
-                        authorizeRequest
-                                .requestMatchers("/error").permitAll()
-                                .requestMatchers("/swagger.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                                .requestMatchers("/schedule/**").permitAll()
-                                .anyRequest().authenticated()
+                .authorizeHttpRequests(authorizeRequest -> authorizeRequest
+                        .requestMatchers("/error").permitAll()
+                        .requestMatchers("/swagger.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .requestMatchers("/schedule/**").permitAll()
+                        .requestMatchers("/department/**").permitAll()
+                        .anyRequest().authenticated()
 
                 );
-//                .headers(
-//                        headersConfigurer ->
-//                                headersConfigurer
-//                                        .frameOptions(
-//                                                HeadersConfigurer.FrameOptionsConfig::sameOrigin
-//                                        )
-//                );
+        // .headers(
+        // headersConfigurer ->
+        // headersConfigurer
+        // .frameOptions(
+        // HeadersConfigurer.FrameOptionsConfig::sameOrigin
+        // )
+        // );
 
         return http.build();
     }
