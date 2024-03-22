@@ -1,6 +1,7 @@
 package com.nklcb.cosmos.organization.service;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,10 @@ public class DepartmentService {
 
         departmentRepository.save(department);
 
+    }
+
+    public List<Department> getDepartmentList() {
+        return departmentRepository.findAll();
     }
 
 }

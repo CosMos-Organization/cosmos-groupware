@@ -17,14 +17,16 @@ public class Department extends BaseEntity {
     private int companyId;
     private String memberId;
     private int parentId;
+    private String parentName;
     private String departmentName;
 
     @Builder
-    public Department(int departmentId, int companyId, String memberId, int parentId, String departmentName) {
+    public Department(int departmentId, int companyId, String memberId, int parentId, String parentName, String departmentName) {
         this.departmentId = departmentId;
         this.companyId = companyId;
         this.memberId = memberId;
         this.parentId = parentId;
+        this.parentName = parentName;
         this.departmentName = departmentName;
     }
 
