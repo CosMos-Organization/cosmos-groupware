@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalErrorAdvice {
     @ExceptionHandler(NotFoundResultException.class)
-    public ResponseEntity<ErrorResponse> exception(final Exception e){
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseEntity<ErrorResponse> notFoundResultException(final Exception e){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ErrorResponse(e.getMessage()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> processValidationError(MethodArgumentNotValidException ex) {
+    public ResponseEntity<ErrorResponse> processValidationException(MethodArgumentNotValidException ex) {
         BindingResult result = ex.getBindingResult();
         StringBuilder errMessage = new StringBuilder();
 
@@ -31,6 +31,12 @@ public class GlobalErrorAdvice {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ErrorResponse(errMessage.toString()));
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> totalException(final Exception e){
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ErrorResponse(e.getMessage()));
     }
 
 }
