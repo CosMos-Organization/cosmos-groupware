@@ -18,7 +18,7 @@ public class GlobalErrorAdvice {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> processValidationError(MethodArgumentNotValidException ex) {
+    public ResponseEntity<ErrorResponse> processValidationError(MethodArgumentNotValidException ex) {
         BindingResult result = ex.getBindingResult();
         StringBuilder errMessage = new StringBuilder();
 
@@ -29,8 +29,8 @@ public class GlobalErrorAdvice {
                     .append(":")
                     .append(error.getDefaultMessage());
         }
-
-        return new ResponseEntity<>(errMessage , HttpStatus.BAD_REQUEST);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new ErrorResponse(errMessage.toString()));
     }
 
 }
