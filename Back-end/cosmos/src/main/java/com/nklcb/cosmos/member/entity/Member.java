@@ -2,6 +2,7 @@ package com.nklcb.cosmos.member.entity;
 
 import com.nklcb.cosmos.global.BaseEntity;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,6 +13,7 @@ import java.util.Collection;
 @Getter
 @NoArgsConstructor
 @Entity
+
 public class Member extends BaseEntity implements UserDetails {
     @Column(length = 255, nullable = false)
     private String memberId;
@@ -21,6 +23,14 @@ public class Member extends BaseEntity implements UserDetails {
 
     @Column(length = 255, nullable = false)
     private String name;
+    @Builder
+    public Member(String memberId, String memberPassword, String name) {
+        this.memberId = memberId;
+        this.memberPassword = memberPassword;
+        this.name = name;
+    }
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
