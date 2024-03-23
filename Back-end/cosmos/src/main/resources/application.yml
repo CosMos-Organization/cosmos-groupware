@@ -18,6 +18,7 @@ logging:
   level:
     org.hibernate.SQL: debug
     org.hibernate.type: trace
+    com.nklcb.cosmos: debug
 
 
 springdoc:
