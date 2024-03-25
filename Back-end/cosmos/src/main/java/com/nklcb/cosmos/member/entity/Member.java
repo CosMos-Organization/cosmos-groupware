@@ -2,7 +2,6 @@ package com.nklcb.cosmos.member.entity;
 
 import com.nklcb.cosmos.global.BaseEntity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.Builder;
 import lombok.Getter;
