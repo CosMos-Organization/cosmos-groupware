@@ -45,9 +45,9 @@ public class MemberController {
             @ApiResponse(responseCode = "200", description = "사원 리스트 조회 성공"),
             @ApiResponse(responseCode = "400", description = "사원 리스트 조회 실패")
     })
-    public List<Member> getMemberList() {
+    public ResponseEntity<List<Member>> getMemberList() {
         List<Member> memberList = memberService.getMemberInfo();
-        return memberList;
+        return ResponseEntity.ok().body(memberList);
     }
 
 }
