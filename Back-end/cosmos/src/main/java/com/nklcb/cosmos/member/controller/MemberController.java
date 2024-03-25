@@ -2,6 +2,8 @@ package com.nklcb.cosmos.member.controller;
 
 import java.util.List;
 
+import org.apache.catalina.connector.Response;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,12 +18,13 @@ import com.nklcb.cosmos.member.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin("*")
-@RequestMapping("/member")
+@RequestMapping("/admin_company")
 public class MemberController {
 
     private final MemberService memberService;
@@ -32,9 +35,9 @@ public class MemberController {
             @ApiResponse(responseCode = "200", description = "회원가입 성공"),
             @ApiResponse(responseCode = "400", description = "회원가입 실패")
     })
-    public String createMember(@RequestBody MemberDTO.MemberInfo memberInfo) {
+    public ResponseEntity<Void> createMember(@Valid @RequestBody MemberDTO.MemberInfo memberInfo) {
         memberService.createMember(memberInfo);
-        return "hello";
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/list")
