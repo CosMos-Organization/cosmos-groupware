@@ -14,8 +14,11 @@ public class MemberDTO {
 
         @NotNull(message = "이메일은 필수 입력 값입니다.")
         private String email;
+        @NotNull(message = "비밀번호는 필수 입력 값입니다.")
         private String password;
+        @NotNull(message = "이름은 필수 입력 값입니다.")
         private String name;
+        @NotNull(message = "전화번호는 필수 입력 값입니다.")
         private String phone;
         private String department;
         private String position;
