@@ -3,10 +3,12 @@ package com.nklcb.cosmos.commute.entity;
 import com.nklcb.cosmos.global.BaseEntity;
 import com.nklcb.cosmos.member.entity.Member;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Builder;
 
+@Entity
 public class CommuteAttendee extends BaseEntity {
 
     @ManyToOne(optional = false)
