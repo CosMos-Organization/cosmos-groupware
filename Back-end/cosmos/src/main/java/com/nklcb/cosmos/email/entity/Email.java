@@ -1,11 +1,8 @@
 package com.nklcb.cosmos.email.entity;
 
 import com.nklcb.cosmos.global.BaseEntity;
-import com.nklcb.cosmos.member.entity.Member;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,9 +12,11 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Email extends BaseEntity {
 
-    @ManyToOne
-    @JoinColumn(name="memberId")
-    private Member senderAddress; //보낸사람 이메일 주소
+//    @ManyToOne
+//    @JoinColumn(name="senderAddress")
+//    private Member senderAddress; //보낸사람 이메일 주소
+    @Column
+    private String senderAddress; //보낸사람 이메일 주소
 
     @Column
     private String getterAddress; //받는 사람 이메일주소 => text로 복수의 사람을 넣을거라 $같은 구분자 end에 넣기
@@ -29,8 +28,9 @@ public class Email extends BaseEntity {
     private String content;
 
     @Builder
-    public Email(Member senderAddress, String getterAddress, String content ){
+    public Email(String senderAddress, String getterAddress,String title ,String content ){
         this.senderAddress = senderAddress;
+        this.title = title;
         this.getterAddress = getterAddress;
         this.content = content;
 

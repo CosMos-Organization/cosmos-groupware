@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RequestMapping("/email")
 @RestController
@@ -18,10 +20,15 @@ public class TestController {
 
 
 
-    @PostMapping("save")
+    @PostMapping("/save")
     public ResponseEntity<String> writeEmail(@RequestBody EmailDto emailDto){
         emailService.writeEmail(emailDto);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/readEmailList")
+    public ResponseEntity<List> readEmailList(@RequestBody EmailDto emailDto){
+        return ResponseEntity.ok(emailService.readEmailList(emailDto));
     }
 
 
