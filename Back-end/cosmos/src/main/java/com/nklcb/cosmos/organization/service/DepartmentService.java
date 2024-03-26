@@ -20,9 +20,7 @@ public class DepartmentService {
         int parentId = 1;
         String departmentName = map.get("childDepart");
         Department department = Department.builder()
-                .departmentId(12)
                 .companyId(34)
-                .memberId("member")
                 .parentId(parentId)
                 .departmentName(departmentName)
                 .build();
