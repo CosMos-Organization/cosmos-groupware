@@ -18,7 +18,7 @@ public class MemberService {
 
     public void createMember(MemberDTO.MemberInfo memberInfo) {
         Member member = Member.builder()
-                .memberId(memberInfo.getMemberId())
+                .email(memberInfo.getEmail())
                 .password(memberInfo.getPassword())
                 .name(memberInfo.getName())
                 .phone(memberInfo.getPhone())

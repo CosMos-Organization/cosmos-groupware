@@ -22,10 +22,10 @@ import java.util.Collections;
 @Configuration
 public class SecurityConfig {
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    // @Bean
+    // PasswordEncoder passwordEncoder() {
+    //     return new BCryptPasswordEncoder();
+    // }
 
     // CORS 설정
     CorsConfigurationSource corsConfigurationSource() {
@@ -50,6 +50,7 @@ public class SecurityConfig {
                                 .requestMatchers("/error").permitAll()
                                 .requestMatchers("/swagger.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                                 .requestMatchers("/schedule/**").permitAll()
+                                .requestMatchers("/admin_company/**").permitAll()
                                 .anyRequest().authenticated()
 
                 );
