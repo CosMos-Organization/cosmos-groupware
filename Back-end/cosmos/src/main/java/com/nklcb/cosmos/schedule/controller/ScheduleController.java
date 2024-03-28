@@ -14,6 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/schedule")
 @RequiredArgsConstructor
@@ -50,6 +52,17 @@ public class ScheduleController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
+    }
+
+    @GetMapping
+    @Operation(summary = "getAllSchedules", description = "전체 일정을 조회한다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "성공",
+                    content = {@Content(schema = @Schema(implementation = List.class))}),
+    })
+    public ResponseEntity<?> getAllSchedules() {
+        List<ScheduleDTO.AllSchedulesResponse> allSchedules = scheduleService.getAllSchedules();
+        return ResponseEntity.ok(allSchedules);
     }
 
 

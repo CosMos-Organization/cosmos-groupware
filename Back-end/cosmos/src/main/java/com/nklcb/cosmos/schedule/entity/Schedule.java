@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Getter
@@ -34,6 +36,9 @@ public class Schedule extends BaseEntity {
     @ManyToOne(optional = false)
     @JoinColumn(name = "member_id")
     private Member member;      // 작성자
+
+    @OneToMany(mappedBy = "schedule")
+    private List<ScheduleAttendee> scheduleAttendeeList = new ArrayList<>();;
 
 
     @Builder

@@ -3,11 +3,13 @@ package com.nklcb.cosmos.member.dto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 public class MemberDTO {
 
     @Getter
+    @Builder
     @AllArgsConstructor
     @Schema(description = "사원추가 정보")
     public static class MemberInfo {
