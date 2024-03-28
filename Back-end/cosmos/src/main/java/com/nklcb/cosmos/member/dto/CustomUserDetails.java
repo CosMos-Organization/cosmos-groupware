@@ -33,12 +33,12 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return member.getMemberPassword();
+        return member.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return member.getMemberId();
+        return member.getEmail();
     }
 
     @Override

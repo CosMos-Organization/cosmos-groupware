@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 @Entity
 public class RefreshToken extends BaseEntity {
 
-    private String memberId;
+    private String email;
     private String refresh;
     private String expiration;
 
     @Builder
 
-    public RefreshToken(String memberId, String refresh, String expiration) {
-        this.memberId = memberId;
+    public RefreshToken(String email, String refresh, String expiration) {
+        this.email = email;
         this.refresh = refresh;
         this.expiration = expiration;
     }

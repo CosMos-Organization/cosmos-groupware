@@ -83,7 +83,7 @@ public class SecurityConfig {
                         authorizeRequest
                                 .requestMatchers("/error").permitAll()
                                 .requestMatchers("/swagger.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                                .requestMatchers("/schedule/**", "/login", "/", "/join", "/a").permitAll()
+                                .requestMatchers("/schedule/**", "/login", "/", "/join", "/a" ,"/admin_company/**").permitAll()
                                 .requestMatchers("/reissue").permitAll()
                                 .anyRequest().authenticated()
 
